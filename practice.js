@@ -98,24 +98,22 @@ dog.bark();
 
 //Return mySum.
 //  array2 = [1, 2, 3, 5, 100, 1000, 6];
-//  function looper(array2)
-//  {var mySum = 0;
-//  {
-//  for (i=0; array2.length > i; i++)
-//  {
-//    if (array2[i] % 2 != 0)
-//    {
-//      console.log(array2);
-//    }
-//    else if (array2[i] >= 100)  
-//    {
-//   console.log(array2);
-//   }
-//  array2.push("chocolate");
-//  return groceries;
-//  }};
-//  }
-//  looper(array2);
+function looper(array2)
+ {var mySum = 0;
+  {
+  for (i=0; array2.length > i; i++)
+  {
+    if (array2[i] % 2 != 0)
+    {
+      console.log(array2);
+    }
+    else if (array2[i] >= 100)  
+    {
+   console.log(array2);
+   }
+
+  }};
+  }
 //////////////////PROBLEM 7////////////////////
 
 //Given the following function called math
@@ -137,11 +135,13 @@ return par1 + par2;
 var mathSum = math(3,4, add);
 //////////////////PROBLEM 8////////////////////
 
-//Write a function called invoker that takes in one paramter, a callback function.
+//Write a function called invoker that takes in one paramter,
+//a callback function.
 //invoker should return the result of invoking the callback.
-function invoker(parameter)
+function invoker(parameter, callback)
 {
-
+return parameter();
+return callback();
 }
 function sampleCallbackOne() {
   return "I am a callback function";
@@ -150,7 +150,7 @@ function sampleCallbackOne() {
 function sampleCallbackTwo() {
   return "I am also a callback function";
 }
-
+invoker(sampleCallbackOne,sampleCallbackTwo);
 //Code Here
 
 //////////////////PROBLEM 9////////////////////
@@ -175,28 +175,30 @@ function pond() {
 //as strings.
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let globalScope = "duck";
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathroomScope = ["duck", "sailorDuck", "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathtubScope = ["duck", "sailorDuck",  "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let pondScope = ["duck", "realDuck"];
 
 //////////////////PROBLEM 10////////////////////
-
 //Create a function called outerFn which returns an anonymous
 //function which returns your name.
-
-//Code Here
-
+var name = "Bradley"
+function outerFn(name)
+{  
+  return function (name)
+  { return "Bradley"}
+}
 //Now save the result of invoking outerFn into a variable called innerFn.
-
-//Code Here
-
+function innerFn(outerFn) {
+  return name;
+}
 //Now invoke innerFn and save the result to a variable called finalResult.
-
-//Code Here
+finalResult = innerFn(name)
+console.log(innerFn(name))
